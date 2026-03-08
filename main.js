@@ -1,5 +1,5 @@
 // Typing animation
-const text = ["Web Developer","Frontend Developer","Programmer"];
+const text = ["Web Developer","Full stack Dev..","Programmer"];
 let count = 0;
 let index = 0;
 let currentText = "";

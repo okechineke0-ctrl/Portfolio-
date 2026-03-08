@@ -8,16 +8,93 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+/* SCROLL PROGRESS BAR */
+.scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #38bdf8;
+  width: 0%;
+  z-index: 200;
+  transition: width 0.25s ease;
+}
+
+/* PROJECT CARD ENHANCEMENTS */
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 20px;
+  transition: 0.4s transform, 0.4s box-shadow;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.4s;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(56,189,248,0.4);
+}
+.card:hover img {
+  transform: scale(1.05);
+}
+.card .btn {
+  margin: 5px 5px 0 5px;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #38bdf8;
+  color: black;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.card .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(56,189,248,0.4);
+}
+
+/* BACK TO TOP BUTTON */
+#topBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: none;
+  background: #38bdf8;
+  color: black;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#topBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(56,189,248,0.4);
+}
+</style>
 </head>
 
 <body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-bar"></div>
 
 <header>
 <nav class="navbar">
 <h2 class="logo">DevSuccess</h2>
 
 <ul class="nav-links" id="navLinks">
-<li><a href="#home">Home</a></li>
+<li><a href="#home" class="active">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#projects">Projects</a></li>
@@ -25,7 +102,6 @@
 </ul>
 
 <div class="nav-controls">
-<button id="themeToggle"></button>
 <div class="menu-toggle" id="menu-toggle">☰</div>
 </div>
 
@@ -58,27 +134,44 @@
 </div>
 </section>
 
+<!-- PROJECTS WITH LIVE & GITHUB LINKS -->
 <section id="projects" class="section">
 <h2 data-aos="fade-up">Projects</h2>
 <div class="project-container">
+
+<!-- Project 1 -->
 <div class="card" data-aos="zoom-in">
+<img src="https://source.unsplash.com/400x250/?website,portfolio" alt="Portfolio Website">
 <h3>Portfolio Website</h3>
-<p>Modern responsive personal website.</p>
+<p>Modern responsive personal website with interactive features.</p>
+<a href="https://yourusername.github.io/portfolio" target="_blank" class="btn">Live Site</a>
+<a href="https://github.com/yourusername/portfolio" target="_blank" class="btn">View Code</a>
 </div>
+
+<!-- Project 2 -->
 <div class="card" data-aos="zoom-in" data-aos-delay="100">
+<img src="https://source.unsplash.com/400x250/?weather,app" alt="Weather App">
 <h3>Weather App</h3>
-<p>Dynamic weather data app using API.</p>
+<p>Dynamic weather data app using API with real-time updates.</p>
+<a href="https://yourusername.github.io/weather-app" target="_blank" class="btn">Live Site</a>
+<a href="https://github.com/yourusername/weather-app" target="_blank" class="btn">View Code</a>
 </div>
+
+<!-- Project 3 -->
 <div class="card" data-aos="zoom-in" data-aos-delay="200">
+<img src="https://source.unsplash.com/400x250/?todo,app" alt="Todo App">
 <h3>Todo App</h3>
-<p>Task management web application.</p>
+<p>Task management web application with interactive UI.</p>
+<a href="https://yourusername.github.io/todo-app" target="_blank" class="btn">Live Site</a>
+<a href="https://github.com/yourusername/todo-app" target="_blank" class="btn">View Code</a>
 </div>
+
 </div>
 </section>
 
 <section id="contact" class="section" data-aos="fade-up">
 <h2>Contact</h2>
-<form action="mailto: okechineke0@gmail.com">
+<form action="mailto:okechineke0@gmail.com">
 <input type="text" placeholder="Name" required>
 <input type="email" placeholder="Email" required>
 <textarea placeholder="Message" required></textarea>
@@ -86,12 +179,64 @@
 </form>
 </section>
 
+<!-- BACK TO TOP BUTTON -->
+<button id="topBtn">↑</button>
+
 <footer>
 <p>© 2026 Dev Success. All rights reserved.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="main.js"></script>
+<script>
+AOS.init();
+
+// Navbar toggle for mobile
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+// Typing animation
+const words = ["Frontend Developer", "Web Designer", "JavaScript Developer"];
+let i = 0, j = 0, currentWord = "", isDeleting = false;
+function type(){
+  currentWord = words[i];
+  if(isDeleting){ j--; } else { j++; }
+  document.querySelector(".typing").textContent = currentWord.substring(0,j);
+  if(!isDeleting && j === currentWord.length){ isDeleting = true; setTimeout(type,1500); return; }
+  if(isDeleting && j === 0){ isDeleting = false; i=(i+1)%words.length; }
+  setTimeout(type,isDeleting ? 50 : 100);
+}
+type();
+
+// Scroll progress bar
+window.onscroll = () => {
+  let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let scrolled = (winScroll / height) * 100;
+  document.querySelector(".scroll-bar").style.width = scrolled + "%";
+};
+
+// Back-to-top button
+const topBtn = document.getElementById("topBtn");
+window.addEventListener("scroll",()=>{
+  topBtn.style.display = window.scrollY > 400 ? "block" : "none";
+});
+topBtn.onclick = () => window.scrollTo({top:0, behavior:"smooth"});
+
+// Active navbar link highlight
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links a");
+window.addEventListener("scroll",()=>{
+  let current = "";
+  sections.forEach(section=>{
+    if(scrollY >= section.offsetTop - 200){ current = section.getAttribute("id"); }
+  });
+  navItems.forEach(a=>{
+    a.classList.remove("active");
+    if(a.getAttribute("href") === "#" + current){ a.classList.add("active"); }
+  });
+});
+</script>
 </body>
 </html>
