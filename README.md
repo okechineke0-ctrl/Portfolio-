@@ -1,11 +1,32 @@
-<div align="center">
+# Okechineke Success Chiemerie - Professional Portfolio
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+> Executive studio portfolio for Okechineke Success Chiemerie: Computer Science student at ESUT Agbani, CEO of Ocean Technologies, and Full-Stack Software Engineer with 3+ years experience.
 
-  <h1>Built with AI Studio</h2>
+Built with **React 19**, **Vite**, **TypeScript**, and **Tailwind CSS**.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+---
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## 🛠️ Local Development
 
-</div>
+```bash
+# Install dependencies
+npm install
+
+# Start local dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+```
+
+---
+
+## 📞 Direct Inquiries & Contact
+- **CEO**: Okechineke Success Chiemerie
+- **Company**: [Ocean Technologies](https://ocean-f4gj.onrender.com/)
+- **Phone**: `08146578477` / `+234 814 657 8477`
+- **Email**: `okechineke0@gmail.com`
+- **Institution**: Enugu State University of Science and Technology (ESUT), Agbani
