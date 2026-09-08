@@ -7,10 +7,10 @@ export const PERSONAL_INFO = {
   subtitles: [
     'CEO & Founder @ Ocean Technologies',
     'Computer Science @ ESUT Agbani',
-    'Former Developer @ Catholic Institute of Information Technology, Awgu',
+    'Former Developer @ Catholic Institute of Information Technology and Applied Sciences (CIITA), Awgu',
     '3+ Years Building Scalable Web & Cloud Systems'
   ],
-  bio: 'Computer Science undergraduate at Enugu State University of Science and Technology (ESUT), Agbani, with over 3 years of hands-on professional software engineering experience. As the CEO of Ocean Technologies and a former software developer at the Catholic Institute of Information Technology (CIIT) Awgu, I specialize in crafting high-performance, mobile-responsive web applications with modern architectures like React, Next.js, and Tailwind CSS.',
+  bio: 'Computer Science undergraduate at Enugu State University of Science and Technology (ESUT), Agbani (2024 — Till Now), with over 3 years of hands-on professional software engineering experience. As the CEO of Ocean Technologies and a former software developer at the Catholic Institute of Information Technology and Applied Sciences (CIITA) Awgu, I specialize in crafting high-performance, mobile-responsive web applications with modern architectures like React, Next.js, and Tailwind CSS.',
   institution: 'Enugu State University of Science and Technology (ESUT), Agbani',
   degree: 'B.Sc. in Computer Science',
   yearsInTech: '3+ Years',
@@ -43,13 +43,13 @@ export const EXPERIENCES: Experience[] = [
     link: 'https://ocean-f4gj.onrender.com/'
   },
   {
-    id: 'ciit-awgu',
+    id: 'ciita-awgu',
     role: 'Software Developer & IT Systems Specialist',
-    organization: 'Catholic Institute of Information Technology (CIIT)',
+    organization: 'Catholic Institute of Information Technology and Applied Sciences (CIITA)',
     location: 'Awgu, Enugu State',
     period: '2022 — 2024',
     type: 'Professional Experience',
-    description: 'Developed and maintained institutional software systems, student databases, and web portals. Provided technical leadership and computer science instruction in modern software engineering fundamentals.',
+    description: 'Developed and maintained institutional software systems, student databases, and web portals at CIITA Awgu. Provided technical leadership and computer science instruction in modern software engineering fundamentals.',
     achievements: [
       'Built and upgraded institutional database utilities and digital portals, streamlining student and administrative data access',
       'Conducted practical IT workshops and programming sessions, training over 100+ learners in programming and web tech',
@@ -63,7 +63,7 @@ export const EXPERIENCES: Experience[] = [
     role: 'Computer Science Scholar & Tech Innovator',
     organization: 'Enugu State University of Science and Technology (ESUT)',
     location: 'Agbani, Enugu State',
-    period: '2021 — Present',
+    period: '2024 — Till Now',
     type: 'Academic & Applied Computing',
     description: 'Pursuing Bachelor of Science in Computer Science, focusing on algorithms, distributed computing, database systems, software engineering methodologies, and human-computer interaction.',
     achievements: [
@@ -92,10 +92,10 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    id: 'ciit-portal',
-    title: 'CIIT Awgu Academic Information System',
+    id: 'ciita-portal',
+    title: 'CIITA Awgu Academic Information System',
     tagline: 'Institutional Management & Student Academic Record Portal',
-    description: 'A digitized records and academic management portal conceptualized and developed for the Catholic Institute of Information Technology, Awgu. Streamlines course registrations, grade access, and institutional announcements.',
+    description: 'A digitized records and academic management portal conceptualized and developed for the Catholic Institute of Information Technology and Applied Sciences (CIITA), Awgu. Streamlines course registrations, grade access, and institutional announcements.',
     category: 'enterprise',
     tags: ['React', 'Tailwind CSS', 'Express.js', 'PostgreSQL', 'Auth'],
     featured: true,
@@ -163,7 +163,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: 'Data Structures & Algorithms', level: 86, description: 'Time/space complexity analysis, problem solving from ESUT CS coursework' },
       { name: 'Git & Version Control', level: 92, description: 'Branching models, pull requests, collaborative development, and code reviews' },
       { name: 'Tech Leadership & Product Vision', level: 90, description: 'Leading Ocean Technologies, client communication, and roadmap execution' },
-      { name: 'Technical Teaching & Mentorship', level: 88, description: 'Knowledge transfer honed during tenure at CIIT Awgu' }
+      { name: 'Technical Teaching & Mentorship', level: 88, description: 'Knowledge transfer honed during tenure at CIITA Awgu' }
     ]
   }
 ];

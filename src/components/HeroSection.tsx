@@ -65,15 +65,15 @@ export const HeroSection: React.FC = () => {
               <div className="text-sm sm:text-base text-zinc-300 font-medium flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
                 <span className="text-white">CEO @ Ocean Technologies</span>
                 <span className="text-zinc-600">•</span>
-                <span>Computer Science @ ESUT Agbani</span>
+                <span>Computer Science @ ESUT Agbani (2024 — Till Now)</span>
                 <span className="text-zinc-600">•</span>
-                <span className="text-zinc-400">Ex-CIIT Awgu Developer</span>
+                <span className="text-zinc-400">Ex-CIITA Awgu Developer</span>
               </div>
             </div>
 
             {/* Executive Bio Narrative */}
             <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Computer Science undergraduate at <span className="text-zinc-200 font-medium">Enugu State University of Science and Technology (ESUT), Agbani</span>. 
+              Computer Science undergraduate at <span className="text-zinc-200 font-medium">Enugu State University of Science and Technology (ESUT), Agbani</span> (2024 — Till Now). 
               With <span className="text-zinc-200 font-medium">3+ years in tech</span>, founder & CEO of{' '}
               <a 
                 href={PERSONAL_INFO.companyUrl} 
@@ -84,7 +84,7 @@ export const HeroSection: React.FC = () => {
                 Ocean Technologies
                 <ExternalLink className="w-3.5 h-3.5 inline" />
               </a>
-              , and former software developer at Catholic Institute of Information Technology (CIIT) Awgu. Specializing in modern React, Next.js, and reliable cloud platform delivery.
+              , and former software developer at Catholic Institute of Information Technology and Applied Sciences (CIITA) Awgu. Specializing in modern React, Next.js, and reliable cloud platform delivery.
             </p>
 
             {/* Quick Credentials Summary */}
@@ -95,11 +95,11 @@ export const HeroSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs text-zinc-300">
                 <GraduationCap className="w-3.5 h-3.5 text-zinc-400" />
-                <span>CS @ ESUT Agbani</span>
+                <span>CS @ ESUT (2024 — Till Now)</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs text-zinc-300">
                 <ShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
-                <span>Ex-CIIT Awgu Developer</span>
+                <span>Ex-CIITA Awgu Developer</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs text-zinc-300">
                 <MapPin className="w-3.5 h-3.5 text-zinc-400" />

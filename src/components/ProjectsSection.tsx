@@ -47,7 +47,7 @@ export const ProjectsSection: React.FC = () => {
           {[
             { id: 'all', label: 'All Projects' },
             { id: 'company', label: 'Ocean Technologies' },
-            { id: 'enterprise', label: 'Institutional / CIIT' },
+            { id: 'enterprise', label: 'Institutional / CIITA' },
             { id: 'academic', label: 'ESUT & Academic' },
             { id: 'web', label: 'Web Applications' },
           ].map((cat) => (

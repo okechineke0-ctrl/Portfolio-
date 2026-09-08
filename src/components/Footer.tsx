@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs font-medium text-zinc-300">
               <li><a href="#home" className="hover:text-white transition-colors">Executive Overview</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">About & Academic Journey</a></li>
-              <li><a href="#experience" className="hover:text-white transition-colors">Career Timeline & CIIT Awgu</a></li>
+              <li><a href="#experience" className="hover:text-white transition-colors">Career Timeline & CIITA Awgu</a></li>
               <li><a href="#projects" className="hover:text-white transition-colors">Projects & Ocean Technologies</a></li>
               <li><a href="#skills" className="hover:text-white transition-colors">Technical Skills & Tooling</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">Contact & Direct Inquiry</a></li>

@@ -17,14 +17,14 @@ export const ExperienceTimeline: React.FC = () => {
             Professional Experience & Track Record
           </h2>
           <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-            Leading engineering at Ocean Technologies, building institutional digital systems at CIIT Awgu, and studying computer science at ESUT Agbani.
+            Leading engineering at Ocean Technologies, building institutional digital systems at CIITA Awgu, and studying computer science at ESUT Agbani.
           </p>
         </div>
 
         {/* Timeline Items */}
         <div className="space-y-8 max-w-4xl mx-auto relative before:absolute before:inset-0 before:left-8 before:w-0.5 before:bg-gradient-to-b before:from-zinc-700 before:via-zinc-800 before:to-transparent before:hidden md:before:block">
           {EXPERIENCES.map((exp, index) => {
-            const isCurrent = exp.period.includes('Present');
+            const isCurrent = exp.period.includes('Present') || exp.period.includes('Now');
 
             return (
               <div

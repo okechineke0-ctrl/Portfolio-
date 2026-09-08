@@ -33,7 +33,7 @@ export const AboutSection: React.FC = () => {
             Academic Rigor Meets Industry Leadership
           </h2>
           <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
-            From algorithmic foundations at ESUT Agbani to institutional software engineering at CIIT Awgu and leading Ocean Technologies.
+            From algorithmic foundations at ESUT Agbani to institutional software engineering at CIITA Awgu and leading Ocean Technologies.
           </p>
         </div>
 
@@ -62,11 +62,11 @@ export const AboutSection: React.FC = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
                 Department of CS
               </span>
-              <span>2021 — Present</span>
+              <span>2024 — Till Now</span>
             </div>
           </div>
 
-          {/* Pillar 2: Industry Track Record (CIIT) */}
+          {/* Pillar 2: Industry Track Record (CIITA) */}
           <div className="p-8 rounded-2xl bg-zinc-950/70 border border-zinc-800/80 hover:border-zinc-700 transition-all space-y-4 shadow-xl backdrop-blur-sm group flex flex-col justify-between">
             <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-200 group-hover:text-white group-hover:scale-105 transition-all">
@@ -75,18 +75,18 @@ export const AboutSection: React.FC = () => {
               <div className="space-y-1">
                 <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider">Applied Engineering</span>
                 <h3 className="font-heading font-bold text-xl text-white">
-                  CIIT Awgu
+                  CIITA Awgu
                 </h3>
               </div>
               <p className="text-sm text-zinc-400 leading-relaxed">
-                Software developer and IT instructor at the <strong className="text-zinc-200">Catholic Institute of Information Technology (CIIT), Awgu</strong>. Built institutional databases, modernized administrative portals, and trained 100+ aspiring software engineers.
+                Software developer and IT instructor at the <strong className="text-zinc-200">Catholic Institute of Information Technology and Applied Sciences (CIITA), Awgu</strong>. Built institutional databases, modernized administrative portals, and trained 100+ aspiring software engineers.
               </p>
             </div>
 
             <div className="pt-4 border-t border-zinc-900 flex items-center justify-between text-xs font-mono text-zinc-400">
               <span className="flex items-center gap-1.5 text-zinc-300">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                Software & IT Lead
+                CIITA Awgu Systems
               </span>
               <span>2022 — 2024</span>
             </div>

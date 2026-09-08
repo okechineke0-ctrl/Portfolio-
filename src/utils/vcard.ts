@@ -14,7 +14,7 @@ export function downloadVCard() {
     'TEL;type=CELL;type=VOICE;type=pref:+2348146578477',
     'TEL;type=WORK;type=VOICE:08146578477',
     'URL;type=WORK:https://ocean-f4gj.onrender.com/',
-    'NOTE:Computer Science student at ESUT Agbani | Ex-CIIT Awgu Developer | CEO of Ocean Technologies',
+    'NOTE:Computer Science student at ESUT Agbani (2024 — Till Now) | Ex-CIITA Awgu Developer | CEO of Ocean Technologies',
     'ADR;type=WORK:;;Enugu State;Agbani;;Nigeria',
     'END:VCARD'
   ].join('\r\n');
