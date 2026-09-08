@@ -6,14 +6,12 @@ import {
   MapPin, 
   GraduationCap, 
   Briefcase, 
-  ShieldCheck, 
+  ShieldCheck,
   CheckCircle2, 
   ExternalLink,
   MessageSquare, 
   ChevronDown,
-  Download,
-  Maximize2,
-  X
+  Download
 } from 'lucide-react';
 import { PERSONAL_INFO, STATS } from '../data/portfolioData';
 import { downloadVCard } from '../utils/vcard';
@@ -21,7 +19,6 @@ import { downloadVCard } from '../utils/vcard';
 export const HeroSection: React.FC = () => {
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [isPhotoLightboxOpen, setIsPhotoLightboxOpen] = useState(false);
 
   const handleCopyPhone = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.phone);
@@ -203,94 +200,20 @@ export const HeroSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Studio Portrait Spotlight (5 Cols) */}
+          {/* Right Column: Picture */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-md">
-              
-              {/* Studio Backdrop Glow / Rim Light Effect */}
-              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-b from-zinc-700/20 via-zinc-800/10 to-transparent blur-2xl pointer-events-none" />
-
-              {/* Portrait Container Frame */}
-              <div className="relative rounded-2xl overflow-hidden bg-zinc-950 border border-zinc-800/90 shadow-[0_25px_70px_rgba(0,0,0,0.95)] group">
-                
-                {/* Image itself - Pure and unedited without artificial filters or overlays */}
-                <div className="relative aspect-square w-full bg-black overflow-hidden">
-                  <img
-                    src="/grok_1788850503948.jpg"
-                    onError={(e) => {
-                      // Fallback to portrait.jpg if uploaded as portrait.jpg
-                      const target = e.currentTarget;
-                      if (target.src !== window.location.origin + '/portrait.jpg') {
-                        target.src = '/portrait.jpg';
-                      }
-                    }}
-                    alt="Okechineke Success Chiemerie"
-                    className="w-full h-full object-cover object-center"
-                    referrerPolicy="no-referrer"
-                  />
-
-                  {/* Studio Tag Top Right */}
-                  <div className="absolute top-4 right-4 flex items-center gap-2">
-                    <button
-                      onClick={() => setIsPhotoLightboxOpen(true)}
-                      className="p-1.5 rounded-full bg-zinc-950/80 border border-zinc-800 text-zinc-400 hover:text-white backdrop-blur-md transition-colors"
-                      title="Enlarge Headshot"
-                    >
-                      <Maximize2 className="w-3.5 h-3.5" />
-                    </button>
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-950/85 border border-zinc-800 text-[11px] font-mono text-zinc-300 backdrop-blur-md shadow-lg">
-                      <ShieldCheck className="w-3 h-3 text-emerald-400" />
-                      <span>Original Portrait</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Bottom Meta */}
-                <div className="p-5 bg-gradient-to-b from-zinc-950 to-zinc-900/95 border-t border-zinc-800/80 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-heading font-bold text-white text-base">
-                        Okechineke Success Chiemerie
-                      </h3>
-                      <p className="text-xs text-zinc-400 font-mono">
-                        CEO @ Ocean Technologies • ESUT Agbani
-                      </p>
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-xs font-mono font-bold text-zinc-300">
-                      OSC
-                    </div>
-                  </div>
-
-                  <div className="pt-2 border-t border-zinc-800/60 flex items-center justify-between text-xs text-zinc-400">
-                    <span className="flex items-center gap-1.5 text-zinc-300 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      Verified Leadership
-                    </span>
-                    <a
-                      href={PERSONAL_INFO.companyUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:text-white transition-colors flex items-center gap-1 font-mono text-[11px]"
-                    >
-                      <span>ocean-f4gj.onrender.com</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Floating Badge (Left bottom) */}
-              <div className="hidden sm:flex absolute -bottom-4 -left-4 items-center gap-2.5 px-4 py-2.5 rounded-xl bg-zinc-900/95 border border-zinc-700/80 shadow-2xl backdrop-blur-md">
-                <div className="w-7 h-7 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-zinc-200">
-                  <Briefcase className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">Ocean Technologies</div>
-                  <div className="text-[10px] text-zinc-400 font-mono">Leading Tech Delivery</div>
-                </div>
-              </div>
-
+            <div className="w-full max-w-md">
+              <img
+                src="/grok_1788850503948.jpg"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src !== window.location.origin + '/portrait.jpg') {
+                    target.src = '/portrait.jpg';
+                  }
+                }}
+                alt="Okechineke Success Chiemerie"
+                className="w-full h-auto rounded-2xl object-cover border border-zinc-800 shadow-2xl"
+              />
             </div>
           </div>
 
@@ -308,39 +231,6 @@ export const HeroSection: React.FC = () => {
         </div>
 
       </div>
-
-      {/* Lightbox Modal for Headshot */}
-      {isPhotoLightboxOpen && (
-        <div 
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
-          onClick={() => setIsPhotoLightboxOpen(false)}
-        >
-          <div className="relative max-w-lg w-full bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
-            <button
-              onClick={() => setIsPhotoLightboxOpen(false)}
-              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-zinc-900/80 border border-zinc-700 text-white hover:bg-zinc-800"
-            >
-              <X className="w-4 h-4" />
-            </button>
-            <img
-              src="/grok_1788850503948.jpg"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (target.src !== window.location.origin + '/portrait.jpg') {
-                  target.src = '/portrait.jpg';
-                }
-              }}
-              alt="Okechineke Success Chiemerie"
-              className="w-full h-auto object-contain max-h-[80vh]"
-              referrerPolicy="no-referrer"
-            />
-            <div className="p-4 bg-zinc-950 text-center space-y-1">
-              <div className="text-sm font-bold text-white">Okechineke Success Chiemerie</div>
-              <div className="text-xs font-mono text-zinc-400">Founder & CEO @ Ocean Technologies • Computer Science @ ESUT Agbani</div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
