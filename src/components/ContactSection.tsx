@@ -8,10 +8,9 @@ import {
   Send, 
   MessageSquare, 
   ExternalLink, 
-  Sparkles,
-  Building,
-  GraduationCap,
-  Download
+  Building, 
+  GraduationCap, 
+  Download 
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { downloadVCard } from '../utils/vcard';
@@ -47,11 +46,22 @@ export const ContactSection: React.FC = () => {
     const mailtoUrl = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(
       formData.subject || `Message from ${formData.name} via Portfolio`
     )}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject || 'Portfolio Inquiry'}\n\nMessage:\n${formData.message}`
     )}`;
 
     window.location.href = mailtoUrl;
     setFormSubmitted(true);
+  };
+
+  const handleSendViaWhatsApp = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.message) {
+      alert('Please enter at least your name and message to chat via WhatsApp.');
+      return;
+    }
+    const text = `Hello Okechineke, my name is ${formData.name}${formData.email ? ` (${formData.email})` : ''}.\n\n*Subject:* ${formData.subject || 'Project / Engineering Inquiry'}\n\n*Message:*\n${formData.message}`;
+    const url = `https://wa.me/2348146578477?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -315,13 +325,24 @@ export const ContactSection: React.FC = () => {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full py-3.5 rounded-xl bg-white hover:bg-zinc-200 text-zinc-950 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-xl active:scale-98"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>Send Message to Okechineke</span>
-                </button>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 px-4 rounded-xl bg-white hover:bg-zinc-200 text-zinc-950 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xl active:scale-98"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Send via Email</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleSendViaWhatsApp}
+                    className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xl active:scale-98"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Send via WhatsApp</span>
+                  </button>
+                </div>
               </form>
             )}
 

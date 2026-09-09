@@ -54,58 +54,49 @@ export const HeroSection: React.FC = () => {
             {/* Main Headline */}
             <div className="space-y-3">
               <div className="text-zinc-400 font-mono text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center lg:justify-start gap-2">
-                <span className="w-2 h-2 rounded-full bg-zinc-600" />
-                <span>Computer Science Scholar & Tech Executive</span>
+                <span className="w-2 h-2 rounded-full bg-zinc-500" />
+                <span>Software Engineer & Tech Executive</span>
               </div>
               <h1 className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.06]">
                 Okechineke Success <span className="text-zinc-400 font-normal">Chiemerie</span>
               </h1>
 
-              {/* Sub-Headline / Institution & Venture */}
-              <div className="text-sm sm:text-base text-zinc-300 font-medium flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
-                <span className="text-white">CEO @ Ocean Technologies</span>
-                <span className="text-zinc-600">•</span>
-                <span>Computer Science @ ESUT Agbani (2024 — Till Now)</span>
-                <span className="text-zinc-600">•</span>
-                <span className="text-zinc-400">Ex-CIITA Awgu Developer</span>
+              {/* Core Credentials Bar */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-2">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/90 border border-zinc-800 text-xs font-medium text-zinc-200">
+                  <Briefcase className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>CEO @ Ocean Technologies</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/90 border border-zinc-800 text-xs font-medium text-zinc-200">
+                  <GraduationCap className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>CS @ ESUT Agbani (2024 — Till Now)</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/90 border border-zinc-800 text-xs font-medium text-zinc-300">
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Ex-CIITA Awgu Developer</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/90 border border-zinc-800 text-xs font-medium text-zinc-300">
+                  <MapPin className="w-3.5 h-3.5 text-zinc-400" />
+                  <span>Enugu, Nigeria</span>
+                </div>
               </div>
             </div>
 
             {/* Executive Bio Narrative */}
-            <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Computer Science undergraduate at <span className="text-zinc-200 font-medium">Enugu State University of Science and Technology (ESUT), Agbani</span> (2024 — Till Now). 
-              With <span className="text-zinc-200 font-medium">3+ years in tech</span>, founder & CEO of{' '}
+            <p className="text-zinc-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal pt-1">
+              Computer Science undergraduate at <span className="text-white font-medium">Enugu State University of Science and Technology (ESUT), Agbani</span> (2024 — Till Now). 
+              With <span className="text-white font-medium">3+ years of professional engineering</span>, founder & CEO of{' '}
               <a 
                 href={PERSONAL_INFO.companyUrl} 
                 target="_blank" 
                 rel="noreferrer"
-                className="text-white underline decoration-zinc-600 underline-offset-4 hover:decoration-white transition-colors inline-flex items-center gap-1 font-semibold"
+                className="text-emerald-400 underline decoration-emerald-500/60 underline-offset-4 hover:decoration-emerald-400 transition-colors inline-flex items-center gap-1 font-semibold"
               >
                 Ocean Technologies
                 <ExternalLink className="w-3.5 h-3.5 inline" />
               </a>
-              , and former software developer at Catholic Institute of Information Technology and Applied Sciences (CIITA) Awgu. Specializing in modern React, Next.js, and reliable cloud platform delivery.
+              , and former software developer at Catholic Institute of Information Technology and Applied Sciences (CIITA) Awgu. Specializing in modern React, Next.js, and reliable cloud software delivery.
             </p>
-
-            {/* Quick Credentials Summary */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs text-zinc-300">
-                <Briefcase className="w-3.5 h-3.5 text-zinc-400" />
-                <span>CEO, Ocean Technologies</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs text-zinc-300">
-                <GraduationCap className="w-3.5 h-3.5 text-zinc-400" />
-                <span>CS @ ESUT (2024 — Till Now)</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs text-zinc-300">
-                <ShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
-                <span>Ex-CIITA Awgu Developer</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs text-zinc-300">
-                <MapPin className="w-3.5 h-3.5 text-zinc-400" />
-                <span>Enugu, Nigeria</span>
-              </div>
-            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
@@ -200,20 +191,40 @@ export const HeroSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Picture */}
+          {/* Right Column: Picture & Studio Card */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-md">
-              <img
-                src="/grok_1788850503948.jpg"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (target.src !== window.location.origin + '/portrait.jpg') {
-                    target.src = '/portrait.jpg';
-                  }
-                }}
-                alt="Okechineke Success Chiemerie"
-                className="w-full h-auto rounded-2xl object-cover border border-zinc-800 shadow-2xl"
-              />
+            <div className="relative w-full max-w-md group">
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-zinc-800/60 via-zinc-700/20 to-zinc-800/40 blur-xl opacity-60 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              
+              <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-2xl">
+                <img
+                  src="/grok_1788850503948.jpg"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (target.src !== window.location.origin + '/portrait.jpg') {
+                      target.src = '/portrait.jpg';
+                    }
+                  }}
+                  alt="Okechineke Success Chiemerie"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+
+                {/* Studio Photo Footer Badge */}
+                <div className="p-4 bg-gradient-to-t from-zinc-950 via-zinc-950/95 to-zinc-950/80 border-t border-zinc-800/80 flex items-center justify-between">
+                  <div>
+                    <div className="text-xs font-semibold text-white">
+                      Okechineke Success Chiemerie
+                    </div>
+                    <div className="text-[11px] font-mono text-zinc-400">
+                      Founder & CEO, Ocean Technologies
+                    </div>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 text-[11px] font-mono">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Verified Alum</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

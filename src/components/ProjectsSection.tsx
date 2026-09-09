@@ -1,35 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ExternalLink, 
-  Github, 
   CheckCircle2, 
   ArrowUpRight, 
-  Globe, 
   Layers, 
   Sparkles,
   X,
-  Code2,
-  Server,
-  ShieldCheck,
-  Cpu
+  Search
 } from 'lucide-react';
-import { PROJECTS, PERSONAL_INFO } from '../data/portfolioData';
+import { PROJECTS } from '../data/portfolioData';
 import { Project } from '../types';
 
 export const ProjectsSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  const filteredProjects = activeCategory === 'all' 
-    ? PROJECTS 
-    : PROJECTS.filter(p => p.category === activeCategory);
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedProject(null);
+      }
+    };
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedProject]);
+
+  const categories = [
+    { id: 'all', label: 'All Projects', count: PROJECTS.length },
+    { id: 'company', label: 'Ocean Technologies', count: PROJECTS.filter(p => p.category === 'company').length },
+    { id: 'enterprise', label: 'Institutional / CIITA', count: PROJECTS.filter(p => p.category === 'enterprise').length },
+    { id: 'academic', label: 'ESUT & Academic', count: PROJECTS.filter(p => p.category === 'academic').length },
+    { id: 'web', label: 'Web Applications', count: PROJECTS.filter(p => p.category === 'web').length },
+  ];
+
+  const filteredProjects = PROJECTS.filter(p => {
+    const matchesCategory = activeCategory === 'all' || p.category === activeCategory;
+    const matchesQuery = searchQuery === '' || 
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesQuery;
+  });
 
   return (
     <section id="projects" className="py-24 relative z-10 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="space-y-3 mb-12 text-center max-w-3xl mx-auto">
+        <div className="space-y-3 mb-10 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-400 uppercase tracking-wider">
             <Layers className="w-3.5 h-3.5 text-zinc-400" />
             <span>Portfolio & Production Systems</span>
@@ -42,28 +70,67 @@ export const ProjectsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {[
-            { id: 'all', label: 'All Projects' },
-            { id: 'company', label: 'Ocean Technologies' },
-            { id: 'enterprise', label: 'Institutional / CIITA' },
-            { id: 'academic', label: 'ESUT & Academic' },
-            { id: 'web', label: 'Web Applications' },
-          ].map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-mono transition-all ${
-                activeCategory === cat.id
-                  ? 'bg-white text-zinc-950 font-bold shadow-lg'
-                  : 'bg-zinc-900/80 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+        {/* Filter and Search Bar */}
+        <div className="space-y-4 mb-12 max-w-4xl mx-auto">
+          {/* Search Input */}
+          <div className="relative max-w-md mx-auto">
+            <Search className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              placeholder="Filter by technology (React, Node, etc.) or keyword..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-zinc-900/90 border border-zinc-800 text-xs sm:text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300"
+                title="Clear search"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
+
+          {/* Filter Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all flex items-center gap-1.5 ${
+                  activeCategory === cat.id
+                    ? 'bg-white text-zinc-950 font-bold shadow-lg'
+                    : 'bg-zinc-900/80 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 border border-zinc-800'
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span className={`px-1.5 py-0.5 rounded-md text-[10px] ${
+                  activeCategory === cat.id ? 'bg-zinc-200 text-zinc-900 font-bold' : 'bg-zinc-800 text-zinc-400'
+                }`}>
+                  {cat.count}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
+
+        {/* Empty State */}
+        {filteredProjects.length === 0 && (
+          <div className="p-12 text-center rounded-2xl bg-zinc-950/60 border border-zinc-800/80 max-w-md mx-auto space-y-3">
+            <p className="text-zinc-400 text-sm">No systems match your active search filters.</p>
+            <button
+              onClick={() => {
+                setActiveCategory('all');
+                setSearchQuery('');
+              }}
+              className="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-xs font-semibold text-white border border-zinc-700 transition-colors"
+            >
+              Reset Filters
+            </button>
+          </div>
+        )}
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

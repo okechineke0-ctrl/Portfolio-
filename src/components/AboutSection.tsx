@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   GraduationCap, 
   Briefcase, 
   Clock, 
-  Terminal, 
-  Layers, 
   Globe2,
-  Cpu,
   CheckCircle2,
   Download,
   ExternalLink,
-  Award,
   Sparkles
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { downloadVCard } from '../utils/vcard';
 
 export const AboutSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'esut' | 'ciit' | 'ocean'>('all');
 
   return (
     <section id="about" className="py-24 relative z-10 border-t border-white/5">
